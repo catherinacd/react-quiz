@@ -1,0 +1,14 @@
+.finishedQuiz {
+  margin: 0 10px;
+  padding: 10px;
+  color: #fff;
+  border-radius: 5px;
+  border: 2px solid #fff;
+  box-sizing: border-box;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
