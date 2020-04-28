@@ -8,12 +8,12 @@ const ActiveQuiz = ({
   onAnswerClick,
   answerNumber,
   quizLength,
-  state
+  state,
 }) => (
   <div className={classes.activeQuiz}>
     <p className={classes.question}>
       <span>
-        <strong>2.</strong>&nbsp; {question}
+        <strong>{answerNumber}. </strong>&nbsp; {question}
       </span>
       <small>
         {answerNumber} / {quizLength}

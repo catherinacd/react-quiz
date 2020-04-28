@@ -1,7 +1,8 @@
 import React from 'react'
 import classes from './FinishedQuiz.module.css'
+import Button from './../UI/Button/Button'
 
-const FinishedQuiz = ({ results, quiz }) => {
+const FinishedQuiz = ({ results, quiz, onRetry }) => {
   const successCount = Object.keys(results).reduce((total, key) => {
     if (results[key] === 'success') {
       total++
@@ -13,24 +14,31 @@ const FinishedQuiz = ({ results, quiz }) => {
     <div className={classes.finishedQuiz}>
       <ul className={classes.list}>
         {quiz.map((quizItem, index) => {
+          const cls = [
+            'fa',
+            results[quizItem.id] === 'error' ? 'fa-times' : 'fa-check',
+            classes[results[quizItem.id]],
+          ]
+
           return (
-            <li key={index} className={classes.item}>
+            <li key={quizItem.id} className={classes.item}>
               <strong>{index + 1}&nbsp;.</strong>
               {quizItem.question}&nbsp;
-              <span>
-                {console.log(results[quizItem.id])}
-                {results[quizItem.id] === 'error' ? 'error' : 'check'}
-              </span>
+              <i className={cls.join(' ')} />
             </li>
           )
         })}
       </ul>
       <p>
-        {successCount}/{quiz.length}
+        Правильно {successCount} из {quiz.length}
       </p>
 
       <div>
-        <button> повторить</button>
+        <Button onClick={onRetry} type='primary'>
+          Повторить
+        </Button>
+
+        <Button type='success'>Перейти в список тестов</Button>
       </div>
     </div>
   )

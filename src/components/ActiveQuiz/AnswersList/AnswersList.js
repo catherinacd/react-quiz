@@ -4,12 +4,12 @@ import AnswerItem from './AnswerItem/AnswerItem'
 
 const AnswersList = ({ answers, onAnswerClick, state }) => (
   <ul className={classes.answersList}>
-    {answers.map((answer, index) => (
+    {answers.map((answer) => (
       <AnswerItem
-        key={index}
+        key={answer.id}
         answer={answer}
         onAnswerClick={onAnswerClick}
-        state={state && state[answer.id]}
+        state={state && state[answer.id]} // если есть что-то в state
       />
     ))}
   </ul>
