@@ -14,4 +14,5 @@ const AnswerItem = ({ answer, onAnswerClick, state }) => {
     </li>
   )
 }
+
 export default AnswerItem
